@@ -177,7 +177,9 @@ draw_set_color(c_black);
 depth = -3;
 //draw_text(menu[0].x,menu[0].y-96, menu_state[0] + " " + string(menu_state[1]));
 depth = 3;
-
+depth = -100;
+draw_sprite(spr_title, 0, room_width/4, 0);
+depth = 3;
 if (changelog = true) {
     depth = -100;
     bx1 = (room_width/32)*15;

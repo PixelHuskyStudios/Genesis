@@ -68,6 +68,7 @@
     </sprites>
     <sprite>sprites\spr_cursor</sprite>
     <sprite>sprites\PIXELLUCYYYY</sprite>
+    <sprite>sprites\spr_title</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bk_main</background>

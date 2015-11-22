@@ -1,4 +1,10 @@
 ///ai_init(level)
+
+var state = e_state.idle;
+var vsp = 0;
+var hsp = 0;
+
+/*
 lvl = argument0;
 can_change = true;
 moving = false;

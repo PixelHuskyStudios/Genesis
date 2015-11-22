@@ -1,4 +1,62 @@
 ///ai_update();
+/*switch (stete) 
+{
+    case e_state.idle:
+    {
+        hsp = 0;
+        vsp = 0;
+    }
+    case e_state.chase:
+    {
+        
+    }
+
+
+
+
+}
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var i = 0;
 var rxn = (x >= room_width);
 var rxr = (x <= 0);

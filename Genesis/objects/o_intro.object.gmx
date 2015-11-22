@@ -101,7 +101,7 @@ draw_lucy = false;
           <argument>
             <kind>1</kind>
             <string>if (keyboard_check(vk_escape)) {
-    image_index = 3;
+    image_index = 29;
     image_speed = 5;
 }
 if (keyboard_check(vk_anykey) &amp;&amp; !keyboard_check(vk_escape)) {
