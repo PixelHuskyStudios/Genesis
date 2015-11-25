@@ -196,19 +196,16 @@ if (changelog = true) {
     draw_set_alpha(1);
     draw_set_font(font0);
     draw_set_halign(fa_center);
-    draw_text_outline_transformed(x1+((x2-x1)/2),y1+24,2,2,"Changelog v0.55
+    draw_text_outline_transformed(x1+((x2-x1)/2),y1+24,2,2,"Changelog v0.6
     
-    Welcome to the huge update!
+    Minor Update
     New Stuff:
     
-    - Added Menu
-    - Fixed Attacking
-    - Improved AI
-    - Worked on Stackable Inventory
-    - Added Music
-    - Added Options button (Currently Defunct)
-    - Added animated background
-    - Fixed Changelog
+    - Fixed AI
+    - Fixed Mana Potions 'Not Stacking'
+    - Fixed Stackable Inventory
+    - Added Character Screen
+    - Added Stats
     ",2,c_white);
     draw_set_alpha(0.8);
     draw_set_color(c_black);

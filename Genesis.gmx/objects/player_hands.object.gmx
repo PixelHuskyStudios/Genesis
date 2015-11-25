@@ -55,6 +55,11 @@ image_speed = 0;
 image_angle = obj_player.image_angle;
 x = obj_player.x;
 y = obj_player.y;
+if (PAUSED = true) {
+    image_speed = 0;
+} else if (attacking = true) {
+    image_speed = 0.7;
+}
 </string>
           </argument>
         </arguments>
@@ -102,7 +107,8 @@ attacking = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(spr_hands,image_index,obj_player.x,obj_player.y,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
+            <string>depth = -10;
+draw_sprite_ext(spr_hands,image_index,obj_player.x,obj_player.y,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 </string>
           </argument>
         </arguments>

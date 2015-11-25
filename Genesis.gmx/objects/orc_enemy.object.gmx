@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-10</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>enemy_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -105,29 +105,37 @@ hands = instance_nearest(x,y,o_hands);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_angle = direction;
-ai_update();
-if (speed = 2) {
-    speed = 2;
-}
-if (mob_hp &lt;= 0) {
-    for (i = 0; i &lt;= expdrop; i += 1) {
-        instance_create(x,y,o_exp);
+            <string>if (PAUSED = false) {
+    image_angle = direction;
+    ai_update();
+    if (speed = 2) {
+        speed = 2;
     }
-    var amount = round(random(3))
-    for (i = 0; i &lt; amount; i++) {
-        ii[i] = instance_create(x,y,o_item);
-        ii[i].item[0, 0] = -1;
+    if (mob_hp &lt;= 0) {
+        for (i = 0; i &lt;= expdrop; i += 1) {
+            instance_create(x,y,o_exp);
+        }
+        var amount = round(random(3))
+        for (i = 0; i &lt; amount; i++) {
+            ii[i] = instance_create(x,y,o_item);
+            ii[i].item[0, 0] = -1;
+        }
+        with (hands) {
+            instance_destroy();
+        }
+        instance_destroy();
     }
-    instance_destroy();
-}
-
-if (!place_free(x,y) &amp;&amp; creation_check = true) {
-    x+= 32;
-    y-= 32;
-}
-if (alarm[1] = -1) {
-    creation_check = false;
+    
+    if (!place_free(x,y) &amp;&amp; creation_check = true) {
+        x+= 32;
+        y-= 32;
+    }
+    if (alarm[1] = -1) {
+        creation_check = false;
+    }
+} else {
+    speed = 0;
+    image_speed = 0;
 }
 </string>
           </argument>

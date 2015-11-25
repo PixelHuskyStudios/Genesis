@@ -30,6 +30,10 @@ p_init();
 fimage_angle = image_angle;
 can_hit = true;
 instance_create(x,y,player_hands);
+if (!place_free(x,y)) {
+    x = random(view_wview);
+    y = random(view_hview);
+}
 </string>
           </argument>
         </arguments>
@@ -99,42 +103,46 @@ player_hands.attacking = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>dir = point_direction(x,y,mouse_x,mouse_y);
-image_angle = dir;
-if (global.pref[0] = "Normal") {
-    scr_moveNorm();
-} else if (global.pref[0] = "Alternate") {
-    scr_moveAlt();
-}
-
-//Update Stats
-update_stats();
-
-//Check fire
-if (mouse_check_button(mb_right) &amp;&amp; can_fire) {
-    instance_create(x,y,oEarth_shot);
-    can_fire = false
-    alarm[0] = 25;
-}
-if(mouse_check_button(mb_left) &amp;&amp; can_hit) {
-    can_hit = false
-    player_hands.attacking = true;
-    alarm[1] = 26;
-}
-if (alarm[0] = -1) {
-    can_fire = true;
-}
-if (keyboard_check_pressed(vk_numpad0)) {
-    scr_itempickup(0);
-}
-if (keyboard_check_pressed(vk_numpad1)) {
-    scr_itempickup(1);
-}
-if (keyboard_check_pressed(vk_numpad2)) {
-    scr_itempickup(2);
-}
-if (keyboard_check_pressed(vk_numpad3)) {
-    scr_itempickup(3);
+            <string>if (PAUSED = false) {
+    dir = point_direction(x,y,mouse_x,mouse_y);
+    image_angle = dir;
+    if (global.pref[0] = "Normal") {
+        scr_moveNorm();
+    } else if (global.pref[0] = "Alternate") {
+        scr_moveAlt();
+    }
+    
+    //Update Stats
+    update_stats();
+    
+    //Check fire
+    if (mouse_check_button(mb_right) &amp;&amp; can_fire) {
+        instance_create(x,y,oEarth_shot);
+        can_fire = false
+        alarm[0] = 25;
+    }
+    if(mouse_check_button(mb_left) &amp;&amp; can_hit) {
+        can_hit = false
+        player_hands.attacking = true;
+        alarm[1] = 26;
+    }
+    if (alarm[0] = -1) {
+        can_fire = true;
+    }
+    if (keyboard_check_pressed(vk_numpad0)) {
+        scr_itempickup(0);
+    }
+    if (keyboard_check_pressed(vk_numpad1)) {
+        scr_itempickup(1);
+    }
+    if (keyboard_check_pressed(vk_numpad2)) {
+        scr_itempickup(2);
+    }
+    if (keyboard_check_pressed(vk_numpad3)) {
+        scr_itempickup(3);
+    }
+} else {
+    image_speed = 0;
 }
 </string>
           </argument>
@@ -209,7 +217,9 @@ with (other) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(spr_feet,image_index,x,y,image_xscale,image_yscale,fimage_angle,image_blend,image_alpha);
+            <string>depth = -5;
+draw_sprite_ext(spr_feet,image_index,x,y,image_xscale,image_yscale,fimage_angle,image_blend,image_alpha);
+depth = -10;
 draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 </string>
           </argument>

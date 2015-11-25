@@ -70,6 +70,11 @@
     <sprite>sprites\spr_cursor</sprite>
     <sprite>sprites\PIXELLUCYYYY</sprite>
     <sprite>sprites\spr_title</sprite>
+    <sprites name="equipment">
+      <sprite>sprites\helm_set</sprite>
+      <sprite>sprites\chest_set</sprite>
+      <sprite>sprites\leg_set</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bk_main</background>
@@ -116,7 +121,9 @@
       <script>scripts\startingValues.gml</script>
       <script>scripts\addList.gml</script>
       <script>scripts\manageObjects.gml</script>
+      <script>scripts\manageEquip.gml</script>
     </scripts>
+    <script>scripts\drawStats.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
@@ -129,6 +136,10 @@
         <object>objects\obj_invbutton</object>
         <object>objects\mouse_item</object>
         <object>objects\o_item</object>
+      </objects>
+      <objects name="equipment">
+        <object>objects\equip_screen</object>
+        <object>objects\equip_slot</object>
       </objects>
     </objects>
     <objects name="grp_doodads">
@@ -153,6 +164,7 @@
       <objects name="grp_enemy">
         <object>objects\orc_enemy</object>
         <object>objects\o_hands</object>
+        <object>objects\enemy_parent</object>
       </objects>
     </objects>
     <objects name="menu">

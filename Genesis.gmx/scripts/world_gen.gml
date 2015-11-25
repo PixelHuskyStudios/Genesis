@@ -9,12 +9,14 @@ obj[2, 0] = obj_rocks;
 obj[3, 0] = chest_basic;
 obj[4, 0] = obj_player;
 obj[5, 0] = obj_hud;
+obj[6, 0] = equip_screen;
 obj[0,1] = ceil(random(20))+(w_width/40);
 obj[1,1] = ceil(random(15))+(w_width/40);  //II MAX = 40 ii/4*1 10 ii/2 20 ii/4*3 30 ii 40
 obj[2,1] = ceil(random(15))+(w_width/40);
-obj[3, 1] = ceil(random(5))+(w_width/240);
+obj[3, 1] = ceil(random(5))+(w_width/480);
 obj[4, 1] = 1;
 obj[5, 1] = 1;
+obj[6, 1] = 1;
 for (i = 0; i < array_height_2d(obj); i += 1) {
     for (ii = 0; ii < obj[i,1]; ii += 1) {
         if (ii <= 10 && i != 1) {

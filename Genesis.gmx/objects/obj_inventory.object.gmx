@@ -105,7 +105,7 @@ invKey = ord("I");
             <string>var x1, x2, y1, y2;
 x1 = view_xview[0]+(view_wview/8*5);
 x2 = x1+(view_wview/2);
-y1 = view_yview[0]+64;
+y1 = view_yview[0]+256;
 y2 = y1 + 200;
 if (showInv = true) {
 

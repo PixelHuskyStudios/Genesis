@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-11</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>enemy_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -53,10 +53,12 @@ depth = orc.depth+2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (attacking = true) {
-    image_speed = 0.7;
+            <string>if (PAUSED = false) {
+    if (attacking = true) {
+        image_speed = 0.7;
+    }
+    image_angle = orc.image_angle;
 }
-image_angle = orc.image_angle;
 x = orc.x;
 y = orc.y;
 </string>

@@ -10,10 +10,34 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>enum e_state {
+  <code>globalvar PAUSED;
+PAUSED = false;
+
+enum e_state {
     idle,
     chase,
     attack
+}
+enum HELMET {
+    null,
+    basic,
+    medium,
+    heavy,
+    overpowered
+}
+enum CHEST {
+    null,
+    basic,
+    medium,
+    heavy,
+    overpowered
+}
+enum LEGGINGS {
+    null,
+    basic,
+    medium,
+    heavy,
+    overpowered
 }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>

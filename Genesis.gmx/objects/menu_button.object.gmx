@@ -8,6 +8,30 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>menu_buttons</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>over_button = (abs(mouse_x - x) &lt; 240) &amp;&amp; (abs(mouse_y - y) &lt; 48);
+x -= 48;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
@@ -48,15 +72,24 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>while(room = rm_menu &amp;&amp; !audio_is_playing(menu_theme)) {
+            <string>over_button = (abs(mouse_x - x) &lt; 180) &amp;&amp; (abs(mouse_y - y) &lt; 54);
+while(room = rm_menu &amp;&amp; !audio_is_playing(menu_theme)) {
     audio_play_sound(menu_theme,1,0);
 }
 if (mouse_check_button_released(mb_left) &amp;&amp; obj_menu.changelog == false) {
-    if (abs(mouse_x - x) &lt; 240) &amp;&amp; (abs(mouse_y - y) &lt; 48) {
+    if (over_button = true) {
         pressed = true;
         image_index = 0;
         alarm[0] = 15;
         if (button = "Play") {
+            globalvar NAME;
+            NAME = get_string("What is your name, sir?", "NAME");
+            if (NAME = "NAME") {
+                NAME = get_string("Please type in a name!", "NAME");
+            }
+            if (NAME = "NAME") {
+                show_message("Ok, I won't take offense at the fact you were named 'NAME'");
+            }
             room_goto(rm_centre);
             pressed = false;
             obj_menu.menu_state[1] = 0;
@@ -69,36 +102,10 @@ if (mouse_check_button_released(mb_left) &amp;&amp; obj_menu.changelog == false)
             game_end();
             pressed = false;
         }
+    } else if (over_button = false) {
+        image_index = 0;
     }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="56">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Image_index = 0
-
-/*
-TOP LEFT
-x &lt;= 
-*/
 </string>
           </argument>
         </arguments>
@@ -122,7 +129,7 @@ x &lt;=
           <argument>
             <kind>1</kind>
             <string>///Image_index = 1
-if (obj_menu.changelog == false) {
+if (obj_menu.changelog == false &amp;&amp; over_button = true) {
     image_index = 1;
 }
 </string>
@@ -150,7 +157,7 @@ if (obj_menu.changelog == false) {
             <string>draw_set_alpha(0.5);
 draw_sprite(menu_buttons,image_index,x,y);
 draw_set_halign(fa_center);
-draw_text_outline_transformed(x-104,y-50,4,4,button,1,c_white);
+draw_text_outline_transformed(x-40,y-24,4,4,button,1,c_white);
 //draw_text(x+32,y-48, pressed);
 </string>
           </argument>
