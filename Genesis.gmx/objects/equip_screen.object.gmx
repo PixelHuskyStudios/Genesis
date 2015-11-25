@@ -31,6 +31,11 @@ for (i = 0; i &lt; slots; i++) {
     slot[i] = instance_create(0, 0, equip_slot);
     slot[i].image_speed = 0;
 }
+w_slots = 1;
+for (i = 0; i &lt; w_slots; i++) {
+    w_slot[i] = instance_create(0, 0, equip_slot);
+    w_slot[i].image_speed = 0;
+}
 slot[0].slot[0, 0] = HELMET.null;
 slot[0].slot[0, 1] = "HELMET";
 
@@ -39,6 +44,9 @@ slot[1].slot[0, 1] = "CHESTPIECE";
 
 slot[2].slot[0, 0] = LEGGINGS.null;
 slot[2].slot[0, 1] = "LEGGINGS";
+
+w_slot[0].slot[0, 0] = WEAPONS.null;
+w_slot[0].slot[0, 1] = "WEAPONS";
 //STATS
 MAX_STATS = 5;
 for (i = 0; i &lt; MAX_STATS; i++) {
@@ -121,6 +129,7 @@ if (show_EQUIP = true) {
         ix = x1+24;
         iy = y1 + 24+(n * 40);
         
+        
         if (instance_exists(equip_slot)) {
             slot[n].x = ix;
             slot[n].y = iy;
@@ -144,6 +153,18 @@ if (show_EQUIP = true) {
         }
         drawStats(view_xview + (view_wview/4) + 32,(y2 - 70));
         
+    }
+    for (i = 0; i &lt; array_length_1d(w_slot); i++) {
+        var wix, wiy;
+        wix = x1 + 128;
+        wiy = y1 + 24 + (i * 40);
+        
+        if (instance_exists(equip_slot)) {
+        
+        w_slot[i].x = wix;
+        w_slot[i].y = wiy;
+        draw_sprite(spr_border, 0, wix, wiy);
+        }
     }
 }
 //1/2 + 1/4

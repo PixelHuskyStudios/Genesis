@@ -74,6 +74,7 @@
       <sprite>sprites\helm_set</sprite>
       <sprite>sprites\chest_set</sprite>
       <sprite>sprites\leg_set</sprite>
+      <sprite>sprites\sword_set</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -116,14 +117,16 @@
           <script>scripts\scr_itempickup_slot.gml</script>
           <script>scripts\scr_itemdrop_slot.gml</script>
         </scripts>
+        <script>scripts\addToInv.gml</script>
       </scripts>
-      <script>scripts\addToInv.gml</script>
-      <script>scripts\startingValues.gml</script>
       <script>scripts\addList.gml</script>
       <script>scripts\manageObjects.gml</script>
-      <script>scripts\manageEquip.gml</script>
+      <script>scripts\startingValues.gml</script>
     </scripts>
-    <script>scripts\drawStats.gml</script>
+    <scripts name="equipment">
+      <script>scripts\manageEquip.gml</script>
+      <script>scripts\drawStats.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>

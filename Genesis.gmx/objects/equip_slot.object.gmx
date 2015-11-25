@@ -55,6 +55,8 @@ alarm[0] = 10;
     sprite_index = chest_set;
 } else if (slot[0, 1] = "LEGGINGS") {
     sprite_index = leg_set;
+} else if (slot[0, 1] = "WEAPONS") {
+    sprite_index = sword_set;
 }
 </string>
           </argument>
@@ -105,7 +107,9 @@ if (equip_screen.show_EQUIP = true) {
         }
         
     }
-    draw_sprite(sprite_index, slot[0, 0], x, y);
+    if (sprite_index != -1) {
+        draw_sprite(sprite_index, slot[0, 0], x, y);
+    }
 }
 </string>
           </argument>
